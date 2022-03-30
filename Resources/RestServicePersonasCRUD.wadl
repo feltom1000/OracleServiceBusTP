@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="RestServicePersonasCRUD">RestService</doc>
+   <grammars>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferencePersonasCRUD" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:top="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD" schemaLocation="dbReferencePersonasCRUD_table.xsd"/>
+      </schema>
+   </grammars>
+   <resources>
+      <resource path="/getPersonaByPK">
+         <method name="GET" soa:wsdlOperation="selectByPrimaryKey">
+            <request soa:paramElement="pns:PersonasPrimaryKey" xmlns:pns="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD">
+               <param name="dni" style="query" soa:expression="$msg.selectByPrimaryKey_inputParameters/top:dni" type="xsd:long"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:PersonasCollection" xmlns:cns="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD"/>
+            </response>
+         </method>
+      </resource>
+      <resource path="/deletePersona">
+         <method name="DELETE" soa:wsdlOperation="delete">
+            <request soa:paramElement="pns:PersonasCollection" xmlns:pns="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD">
+               <param name="dni" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:dni" type="xsd:long"/>
+               <param name="nombre" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:nombre" type="xsd:string"/>
+               <param name="apellido" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:apellido" type="xsd:string"/>
+               <param name="pais" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:pais" type="xsd:int"/>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+      <resource path="/updatePersona">
+         <method name="PUT" soa:wsdlOperation="update">
+            <request>
+               <param name="id" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:dni" type="xsd:long"/>
+               <representation mediaType="application/json" element="cns:PersonasCollection" xmlns:cns="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD"/>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+      <resource path="/insertPersona">
+         <method name="PUT" soa:wsdlOperation="insert">
+            <request>
+               <param name="id" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:dni" type="xsd:long"/>
+               <param name="nombre" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:nombre/@xsi:nil" type="xsd:boolean"/>
+               <param name="apellido" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:apellido/@xsi:nil" type="xsd:boolean"/>
+               <param name="pais" style="query" soa:expression="$msg.PersonasCollection/top:Personas/top:pais/@xsi:nil" type="xsd:int"/>
+               <representation mediaType="application/json" element="cns:PersonasCollection" xmlns:cns="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD"/>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+      <resource path="/getPersona">
+         <method name="GET" soa:wsdlOperation="dbReferencePersonasCRUDSelect">
+            <request soa:paramElement="pns:dbReferencePersonasCRUDSelectInputParameters" xmlns:pns="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD">
+               <param name="inputParameter" style="query" soa:expression="$msg.dbReferencePersonasCRUDSelect_inputParameters" type="xsd:int"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:PersonasCollection" xmlns:cns="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>

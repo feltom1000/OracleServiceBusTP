@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="windows-1252" ?>
 <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:per="http://www.personas.org"
             targetNamespace="http://www.personas.org" elementFormDefault="qualified">
-  <xsd:element name="Personas">
+  <xsd:element name="Personas" type="per:PersonaType">
     <xsd:annotation>
       <xsd:documentation>A sample element</xsd:documentation>
     </xsd:annotation>
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="Persona" type="per:PersonaType" minOccurs="0" maxOccurs="unbounded"/>
-      </xsd:sequence>
-    </xsd:complexType>
   </xsd:element>
   <xsd:complexType name="PersonaType">
     <xsd:sequence>
-      <xsd:element name="DNI" type="xsd:integer"/>
-      <xsd:element name="Nombre" type="xsd:string"/>
-      <xsd:element name="Apellido" type="xsd:string"/>
-      <xsd:element name="Pais" type="xsd:integer"/>
+      <xsd:element name="Persona" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Pais" type="xsd:integer"/>
+            <xsd:element name="Apellido" type="xsd:string"/>
+            <xsd:element name="Nombre" type="xsd:string"/>
+            <xsd:element name="DNI" type="xsd:integer"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
   <xsd:element name="PersonaInput" type="per:PersonaInputType"/>

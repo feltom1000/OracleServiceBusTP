@@ -40,13 +40,32 @@
                         </con1:response>
                         <con1:requestTransform>
                             <con1:assign varName="entrada">
-                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.N6c515db5.0.17fdc93a4fd.N7f89</con2:id>
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.N6c515db5.0.17fdc93a4fd.N7f55</con2:id>
                                 <con1:expr>
-                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">$body</con2:xqueryText>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config"><![CDATA[<soapenv:Body 	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<dbr:PersonasPrimaryKey xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD">
+    <dbr:dni>{fn:data($body/per:PersonaInput/per:DNI)}</dbr:dni>
+</dbr:PersonasPrimaryKey>
+</soapenv:Body>]]></con2:xqueryText>
                                 </con1:expr>
                             </con1:assign>
                         </con1:requestTransform>
-                        <con1:responseTransform/>
+                        <con1:responseTransform>
+                            <con1:replace varName="body" contents-only="true">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.N6c515db5.0.17fdc93a4fd.N7f52</con2:id>
+                                <con1:location>
+                                    <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                                </con1:location>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="SBProjectTPFinal/xQuery/PersonasSelect_to_Response"/>
+                                        <con2:param name="entrada">
+                                            <con2:path>$salida/*:PersonasCollection</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:replace>
+                        </con1:responseTransform>
                     </con1:wsCallout>
                 </con:actions>
             </con:stage>
