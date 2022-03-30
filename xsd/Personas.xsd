@@ -16,13 +16,14 @@
       <xsd:element name="DNI" type="xsd:integer"/>
       <xsd:element name="Nombre" type="xsd:string"/>
       <xsd:element name="Apellido" type="xsd:string"/>
-      <xsd:element name="DNI_Madre" type="xsd:integer"/>
-      <xsd:element name="DNI_Padre" type="xsd:integer"/>
       <xsd:element name="Pais" type="xsd:integer"/>
     </xsd:sequence>
   </xsd:complexType>
-  <xsd:element name="PersonaInput"/>
+  <xsd:element name="PersonaInput" type="per:PersonaInputType"/>
   <xsd:complexType name="PersonaInputType">
-    <xsd:choice/>
+    <xsd:choice>
+      <xsd:element name="DNI" type="xsd:integer"/>
+      <xsd:element name="Pais" type="xsd:integer"/>
+    </xsd:choice>
   </xsd:complexType>
 </xsd:schema>
