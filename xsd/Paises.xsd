@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:pai="http://www.paises.org"
+            targetNamespace="http://www.paises.org" elementFormDefault="qualified">
+  <xsd:element name="Paises" type="pai:PaisesType">
+    <xsd:annotation>
+      <xsd:documentation>A sample element</xsd:documentation>
+    </xsd:annotation>
+  </xsd:element>
+  <xsd:complexType name="PaisesType">
+    <xsd:sequence>
+      <xsd:element name="Pais" maxOccurs="unbounded" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ID"/>
+            <xsd:element name="Descripcion"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="PaisesInput" type="pai:PaisesInputType"/>
+  <xsd:complexType name="PaisesInputType">
+    <xsd:sequence>
+      <xsd:element name="ID" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>
