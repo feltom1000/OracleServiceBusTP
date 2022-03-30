@@ -102,6 +102,9 @@
    <hash n="oracle.ide.model.TechnologyScopeConfiguration">
       <list n="technologyScope">
          <string v="ServiceBusTechnology"/>
+         <string v="WSDL"/>
+         <string v="WSPolicy"/>
+         <string v="XML"/>
       </list>
    </hash>
    <hash n="oracle.jdeveloper.compiler.OjcConfiguration">
@@ -191,4 +194,5 @@
          </list>
       </hash>
    </hash>
+   <value n="SOA_WSDL_FOLDER_NAME" v="wsdl/"/>
 </jpr:project>
