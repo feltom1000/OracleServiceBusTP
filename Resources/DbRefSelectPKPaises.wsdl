@@ -1,0 +1,32 @@
+<wsdl:definitions
+     name="DbRefSelectPKPaises"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/DbRefSelectPKPaises"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/DbRefSelectPKPaises"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/DbRefSelectPKPaises"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="DbRefSelectPKPaises_plt" >
+    <plt:role name="DbRefSelectPKPaises_role" >
+      <plt:portType name="tns:DbRefSelectPKPaises_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/DbRefSelectPKPaises" schemaLocation="DbRefSelectPKPaises.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="DbRefSelectPKPaisesInput_msg">
+        <wsdl:part name="DbRefSelectPKPaisesInput_msg" element="db:DbRefSelectPKPaisesInput"/>
+    </wsdl:message>
+    <wsdl:message name="DbRefSelectPKPaisesOutputCollection_msg">
+        <wsdl:part name="DbRefSelectPKPaisesOutputCollection" element="db:DbRefSelectPKPaisesOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="DbRefSelectPKPaises_ptt">
+        <wsdl:operation name="DbRefSelectPKPaises">
+            <wsdl:input message="tns:DbRefSelectPKPaisesInput_msg"/>
+            <wsdl:output message="tns:DbRefSelectPKPaisesOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

@@ -1,0 +1,28 @@
+<wsdl:definitions
+     name="dbReferenceInsertPais"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceInsertPais"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceInsertPais"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceInsertPais"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="dbReferenceInsertPais_plt" >
+    <plt:role name="dbReferenceInsertPais_role" >
+      <plt:portType name="tns:dbReferenceInsertPais_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceInsertPais" schemaLocation="dbReferenceInsertPais.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="dbReferenceInsertPaisInput_msg">
+        <wsdl:part name="dbReferenceInsertPaisInput_msg" element="db:dbReferenceInsertPaisInput"/>
+    </wsdl:message>
+    <wsdl:portType name="dbReferenceInsertPais_ptt">
+        <wsdl:operation name="dbReferenceInsertPais">
+            <wsdl:input message="tns:dbReferenceInsertPaisInput_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

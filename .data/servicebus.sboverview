@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ns:composite xmlns:ns="http://xmlns.oracle.com/sca/1.0">
     <ns:reference>
+        <ns:interface src="BusinessService:SBProjectTPFinal/businessService/DbRefSelectPKPaises"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="BusinessService:SBProjectTPFinal/businessService/dbRefDeletePais"/>
+    </ns:reference>
+    <ns:reference>
         <ns:interface src="BusinessService:SBProjectTPFinal/businessService/dbReferenceAllPaises"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="BusinessService:SBProjectTPFinal/businessService/dbReferenceInsertPais"/>
+    </ns:reference>
+    <ns:reference>
+        <ns:interface src="BusinessService:SBProjectTPFinal/businessService/dbRefUpdatePaises"/>
     </ns:reference>
     <ns:reference>
         <ns:interface src="BusinessService:SBProjectTPFinal/businessService/dbReferencePersonasCRUD"/>

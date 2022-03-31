@@ -1,0 +1,12 @@
+<wsdl:definitions targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceInsertPais" name="dbReferenceInsertPais-concrete" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <wsdl:import location="dbReferenceInsertPais.wsdl" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceInsertPais"/>
+    <wsdl:binding name="dbReferenceInsertPais_ptt-binding" type="dbr:dbReferenceInsertPais_ptt" xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceInsertPais">
+        <soap:binding style="document" transport="http://www.bea.com/wli/sb/transports/jca"/>
+        <wsdl:operation name="dbReferenceInsertPais">
+            <soap:operation soapAction="dbReferenceInsertPais"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+        </wsdl:operation>
+    </wsdl:binding>
+</wsdl:definitions>
