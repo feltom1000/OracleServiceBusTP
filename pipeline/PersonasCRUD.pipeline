@@ -59,7 +59,7 @@
                                 </con1:location>
                                 <con1:expr>
                                     <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
-                                        <con2:resource ref="SBProjectTPFinal/xQuery/PersonasSelect_to_Response"/>
+                                        <con2:resource ref="SBProjectTPFinal/xQuery/Personas_to_Response"/>
                                         <con2:param name="entrada">
                                             <con2:path>$salida/*:PersonasCollection</con2:path>
                                         </con2:param>
@@ -75,7 +75,7 @@
             <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e8c" name="Stage31">
                 <con:context/>
                 <con:actions>
-                    <con1:replace varName="body" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
                         <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e8b</con2:id>
                         <con1:location>
                             <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
@@ -119,28 +119,15 @@
                             <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">./dbr:PersonasCollection/dbr:Personas</con2:xpathText>
                         </con1:location>
                     </con1:validate>
-                </con:actions>
-            </con:stage>
-            <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e6c" name="Stage12">
-                <con:context>
-                    <con1:userNsDecl prefix="dbr" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
-                </con:context>
-                <con:actions>
-                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
-                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e6b</con2:id>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/publish/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7dd0</con2:id>
                         <con1:service ref="SBProjectTPFinal/businessService/dbReferencePersonasCRUD" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
-                        <con1:operation>selectByPrimaryKey</con1:operation>
-                        <con1:request>
-                            <con1:body wrapped="true">entrada</con1:body>
-                        </con1:request>
-                        <con1:response>
-                            <con1:body wrapped="true">salida</con1:body>
-                        </con1:response>
-                        <con1:requestTransform>
-                            <con1:assign varName="entrada">
-                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e68</con2:id>
-                                <con1:expr>
-                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config"><![CDATA[<soapenv:Body 	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+                        <con1:operation>insert</con1:operation>
+                        <con1:outboundTransform>
+                            <con2:assign varName="entrada" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e68</con3:id>
+                                <con2:expr>
+                                    <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config"><![CDATA[<soapenv:Body 	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
 <dbr:PersonasCollection xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD">
     <!--Zero or more repetitions:-->
     <dbr:Personas>
@@ -153,27 +140,25 @@
         <dbr:pais>{fn:data($body/dbr:PersonasCollection/dbr:Personas/dbr:pais)}</dbr:pais>
     </dbr:Personas>
 </dbr:PersonasCollection>
-</soapenv:Body>]]></con2:xqueryText>
-                                </con1:expr>
-                            </con1:assign>
-                        </con1:requestTransform>
-                        <con1:responseTransform>
-                            <con1:replace contents-only="true" varName="body">
-                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e65</con2:id>
-                                <con1:location>
-                                    <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
-                                </con1:location>
-                                <con1:expr>
-                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
-                                        <con2:resource ref="SBProjectTPFinal/xQuery/PersonasInsert_ToResponse"/>
-                                        <con2:param name="entrada">
-                                            <con2:path>$salida/*:PersonasCollection</con2:path>
-                                        </con2:param>
-                                    </con2:xqueryTransform>
-                                </con1:expr>
-                            </con1:replace>
-                        </con1:responseTransform>
-                    </con1:wsCallout>
+</soapenv:Body>]]></con3:xqueryText>
+                                </con2:expr>
+                            </con2:assign>
+                            <con2:replace contents-only="true" varName="body" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e65</con3:id>
+                                <con2:location>
+                                    <con3:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con3:xpathText>
+                                </con2:location>
+                                <con2:expr>
+                                    <con3:xqueryTransform xmlns:con3="http://www.bea.com/wli/sb/stages/config">
+                                        <con3:resource ref="SBProjectTPFinal/xQuery/PersonasInsert_ToResponse"/>
+                                        <con3:param name="entrada">
+                                            <con3:path>$salida/*:PersonasCollection</con3:path>
+                                        </con3:param>
+                                    </con3:xqueryTransform>
+                                </con2:expr>
+                            </con2:replace>
+                        </con1:outboundTransform>
+                    </con1:route>
                 </con:actions>
             </con:stage>
         </con:pipeline>
@@ -210,6 +195,178 @@
                 </con:actions>
             </con:stage>
         </con:pipeline>
+        <con:pipeline type="request" name="request-N3f579bc3.6f6fd493.0.17fe04679a3.N7e64">
+            <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e62" name="Stage11" errorHandler="error-N3f579bc3.6f6fd493.0.17fe04679a3.N7e5d">
+                <con:context>
+                    <con1:userNsDecl prefix="dbr" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e5e</con2:id>
+                        <con1:schema ref="SBProjectTPFinal/xsd/Personas"/>
+                        <con1:schemaElement xmlns:per="http://www.personas.org">per:PersonaInput</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">./dbr:dbReferencePersonasCRUDSelectInputParameters</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e59</con2:id>
+                        <con1:service ref="SBProjectTPFinal/businessService/dbReferencePersonasCRUD" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>dbReferencePersonasCRUDSelect</con1:operation>
+                        <con1:request>
+                            <con1:body wrapped="true">entrada</con1:body>
+                        </con1:request>
+                        <con1:response>
+                            <con1:body wrapped="true">salida</con1:body>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:assign varName="entrada">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e1c</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">&lt;soapenv:Body 	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+&lt;dbr:dbReferencePersonasCRUDSelectInputParameters xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD"/>
+&lt;/soapenv:Body></con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:requestTransform>
+                        <con1:responseTransform>
+                            <con1:replace varName="body" contents-only="true">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e19</con2:id>
+                                <con1:location>
+                                    <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                                </con1:location>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="SBProjectTPFinal/xQuery/PersonasInsert_ToResponse"/>
+                                        <con2:param name="entrada">
+                                            <con2:path>$salida/*:PersonasCollection</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:replace>
+                        </con1:responseTransform>
+                    </con1:wsCallout>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f579bc3.6f6fd493.0.17fe04679a3.N7e63">
+            <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e61" name="Stage21">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N3f579bc3.6f6fd493.0.17fe04679a3.N7e5d">
+            <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e5c" name="Stage31">
+                <con:context/>
+                <con:actions>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e22</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config"><![CDATA[<Personas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.personas.org Personas.xsd" xmlns="http://www.personas.org">
+  <Persona>
+    <Pais>0</Pais>
+    <Apellido>Datos Incorrectos</Apellido>
+    <Nombre>Datos De Entrada Incorrectos</Nombre>
+    <DNI>0</DNI>
+  </Persona>
+</Personas>]]></con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:reply isError="true" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e1f</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="request" name="request-N3f579bc3.6f6fd493.0.17fe04679a3.N7e18">
+            <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e16" name="Stage11" errorHandler="error-N3f579bc3.6f6fd493.0.17fe04679a3.N7e11">
+                <con:context>
+                    <con1:userNsDecl prefix="dbr" namespace="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e12</con2:id>
+                        <con1:schema ref="SBProjectTPFinal/xsd/Personas"/>
+                        <con1:schemaElement xmlns:per="http://www.personas.org">per:PersonaInput</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">./dbr:PersonasCollection/dbr:Personas</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                    <con1:route xmlns:con1="http://www.bea.com/wli/sb/stages/publish/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7d9a</con2:id>
+                        <con1:service ref="SBProjectTPFinal/businessService/dbReferencePersonasCRUD" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>update</con1:operation>
+                        <con1:outboundTransform>
+                            <con2:assign varName="entrada" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7d94</con3:id>
+                                <con2:expr>
+                                    <con3:xqueryText xmlns:con3="http://www.bea.com/wli/sb/stages/config"><![CDATA[<soapenv:Body 	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+<dbr:PersonasCollection xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD">
+    <!--Zero or more repetitions:-->
+    <dbr:Personas>
+        <dbr:dni>{fn:data($body/dbr:PersonasCollection/dbr:Personas/dbr:dni)}</dbr:dni>
+        <!--Optional:-->
+        <dbr:nombre>{fn:data($body/dbr:PersonasCollection/dbr:Personas/dbr:nombre)}</dbr:nombre>
+        <!--Optional:-->
+        <dbr:apellido>{fn:data($body/dbr:PersonasCollection/dbr:Personas/dbr:apellido)}</dbr:apellido>
+        <!--Optional:-->
+        <dbr:pais>{fn:data($body/dbr:PersonasCollection/dbr:Personas/dbr:pais)}</dbr:pais>
+    </dbr:Personas>
+</dbr:PersonasCollection>
+</soapenv:Body>]]></con3:xqueryText>
+                                </con2:expr>
+                            </con2:assign>
+                            <con2:replace varName="body" xmlns:con2="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con3:id xmlns:con3="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7d91</con3:id>
+                                <con3:disabled xmlns:con3="http://www.bea.com/wli/sb/stages/config">true</con3:disabled>
+                                <con2:location>
+                                    <con3:xpathText xmlns:con3="http://www.bea.com/wli/sb/stages/config">.</con3:xpathText>
+                                </con2:location>
+                            </con2:replace>
+                        </con1:outboundTransform>
+                    </con1:route>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f579bc3.6f6fd493.0.17fe04679a3.N7e17">
+            <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e15" name="Stage21">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N3f579bc3.6f6fd493.0.17fe04679a3.N7e11">
+            <con:stage id="_StageId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e10" name="Stage31">
+                <con:context/>
+                <con:actions>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7dd9</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config"><![CDATA[<Personas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.personas.org Personas.xsd" xmlns="http://www.personas.org">
+  <Persona>
+    <Pais>0</Pais>
+    <Apellido>Datos Incorrectos</Apellido>
+    <Nombre>Datos De Entrada Incorrectos</Nombre>
+    <DNI>0</DNI>
+  </Persona>
+</Personas>]]></con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:reply isError="true" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-N3f579bc3.6f6fd493.0.17fe04679a3.N7dd6</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
         <con:flow>
             <con:branch-node type="operation" id="_FlowId-N3f579bc3.6f6fd493.0.17fe04679a3.N7e87" name="BranchNode1">
                 <con:context/>
@@ -234,10 +391,25 @@
                             </con:pipeline-node>
                         </con:flow>
                     </con:branch>
-                    <con:branch name="insert">
+                    <con:branch name="dbReferencePersonasCRUDSelect">
                         <con:operator>equals</con:operator>
                         <con:value/>
-                        <con:flow/>
+                        <con:flow>
+                            <con:pipeline-node name="Pipeline Pair Node3">
+                                <con:request>request-N3f579bc3.6f6fd493.0.17fe04679a3.N7e64</con:request>
+                                <con:response>response-N3f579bc3.6f6fd493.0.17fe04679a3.N7e63</con:response>
+                            </con:pipeline-node>
+                        </con:flow>
+                    </con:branch>
+                    <con:branch name="update">
+                        <con:operator>equals</con:operator>
+                        <con:value/>
+                        <con:flow>
+                            <con:pipeline-node name="Pipeline Pair Node4">
+                                <con:request>request-N3f579bc3.6f6fd493.0.17fe04679a3.N7e18</con:request>
+                                <con:response>response-N3f579bc3.6f6fd493.0.17fe04679a3.N7e17</con:response>
+                            </con:pipeline-node>
+                        </con:flow>
                     </con:branch>
                     <con:default-branch>
                         <con:flow/>
