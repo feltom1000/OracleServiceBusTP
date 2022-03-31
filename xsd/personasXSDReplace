@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Personas xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://www.personas.org Personas.xsd" xmlns="http://www.personas.org">
+  <Persona>
+    <Pais></Pais>
+    <Apellido></Apellido>
+    <Nombre></Nombre>
+    <DNI></DNI>
+  </Persona>
+</Personas>
