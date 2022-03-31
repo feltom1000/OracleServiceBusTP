@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<xs:schema targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises" xmlns="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises" elementFormDefault="qualified" attributeFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+   <xs:element name="dbReferenceAllPaisesInput" type="dbReferenceAllPaisesInput"/>
+   <xs:complexType name="dbReferenceAllPaisesInput">
+      <xs:sequence/>
+   </xs:complexType>
+   <xs:element name="dbReferenceAllPaisesOutputCollection" type="dbReferenceAllPaisesOutputCollection"/>
+   <xs:complexType name="dbReferenceAllPaisesOutputCollection">
+      <xs:sequence>
+         <xs:element name="dbReferenceAllPaisesOutput" type="dbReferenceAllPaisesOutput" minOccurs="0" maxOccurs="unbounded"/>
+      </xs:sequence>
+   </xs:complexType>
+   <xs:complexType name="dbReferenceAllPaisesOutput">
+      <xs:sequence>
+         <xs:element name="ID_PAIS" type="xs:integer" nillable="true"/>
+         <xs:element name="DESCRIPCION" type="xs:string" nillable="true"/>
+      </xs:sequence>
+   </xs:complexType>
+</xs:schema>

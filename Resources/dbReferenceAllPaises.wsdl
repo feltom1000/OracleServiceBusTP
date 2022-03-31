@@ -1,0 +1,32 @@
+<wsdl:definitions
+     name="dbReferenceAllPaises"
+     targetNamespace="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceAllPaises"
+     xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceAllPaises"
+     xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/"
+     xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/"
+     xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    >
+  <plt:partnerLinkType name="dbReferenceAllPaises_plt" >
+    <plt:role name="dbReferenceAllPaises_role" >
+      <plt:portType name="tns:dbReferenceAllPaises_ptt" />
+    </plt:role>
+  </plt:partnerLinkType>
+    <wsdl:types>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" >
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises" schemaLocation="dbReferenceAllPaises.xsd" />
+      </schema>
+    </wsdl:types>
+    <wsdl:message name="dbReferenceAllPaisesInput_msg">
+        <wsdl:part name="dbReferenceAllPaisesInput_msg" element="db:dbReferenceAllPaisesInput"/>
+    </wsdl:message>
+    <wsdl:message name="dbReferenceAllPaisesOutputCollection_msg">
+        <wsdl:part name="dbReferenceAllPaisesOutputCollection" element="db:dbReferenceAllPaisesOutputCollection"/>
+    </wsdl:message>
+    <wsdl:portType name="dbReferenceAllPaises_ptt">
+        <wsdl:operation name="dbReferenceAllPaises">
+            <wsdl:input message="tns:dbReferenceAllPaisesInput_msg"/>
+            <wsdl:output message="tns:dbReferenceAllPaisesOutputCollection_msg"/>
+        </wsdl:operation>
+    </wsdl:portType>
+</wsdl:definitions>

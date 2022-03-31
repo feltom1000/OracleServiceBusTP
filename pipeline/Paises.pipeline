@@ -28,6 +28,43 @@
                             <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">./pais:PaisesInput</con2:xpathText>
                         </con1:location>
                     </con1:validate>
+                    <con1:wsCallout xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-7f000001.N58664c6.0.17fdd196eb7.N7fef</con2:id>
+                        <con1:service ref="SBProjectTPFinal/businessService/dbReferenceAllPaises" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>dbReferenceAllPaises</con1:operation>
+                        <con1:request>
+                            <con1:body wrapped="true">entrada</con1:body>
+                        </con1:request>
+                        <con1:response>
+                            <con1:body wrapped="true">salida</con1:body>
+                        </con1:response>
+                        <con1:requestTransform>
+                            <con1:assign varName="entrada">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-7f000001.N58664c6.0.17fdd196eb7.N7f89</con2:id>
+                                <con1:expr>
+                                    <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config">&lt;soapenv:Body 	xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+&lt;dbr:dbReferenceAllPaisesInput xmlns:dbr="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises"/>
+&lt;/soapenv:Body></con2:xqueryText>
+                                </con1:expr>
+                            </con1:assign>
+                        </con1:requestTransform>
+                        <con1:responseTransform>
+                            <con1:replace varName="body" contents-only="true">
+                                <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-7f000001.N58664c6.0.17fdd196eb7.N7f86</con2:id>
+                                <con1:location>
+                                    <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                                </con1:location>
+                                <con1:expr>
+                                    <con2:xqueryTransform xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                                        <con2:resource ref="SBProjectTPFinal/xQuery/PaisesAll_ToResponse"/>
+                                        <con2:param name="entrada">
+                                            <con2:path>$salida/*:dbReferenceAllPaisesOutputCollection</con2:path>
+                                        </con2:param>
+                                    </con2:xqueryTransform>
+                                </con1:expr>
+                            </con1:replace>
+                        </con1:responseTransform>
+                    </con1:wsCallout>
                 </con:actions>
             </con:stage>
         </con:pipeline>
@@ -56,6 +93,9 @@
 </Paises>]]></con2:xqueryText>
                         </con1:expr>
                     </con1:replace>
+                    <con1:reply isError="true" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-7f000001.N58664c6.0.17fdd196eb7.N7ff2</con1:id>
+                    </con1:reply>
                 </con:actions>
             </con:stage>
         </con:pipeline>

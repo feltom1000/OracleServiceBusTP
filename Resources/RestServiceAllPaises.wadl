@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="RestServiceAllPaises">RestService</doc>
+   <grammars>
+      <schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/pcbpel/adapter/db/ServiceBusApplication/SBProjectTPFinal/dbReferenceAllPaises" xmlns:jca="http://xmlns.oracle.com/pcbpel/wsdl/jca/" xmlns:plt="http://schemas.xmlsoap.org/ws/2003/05/partner-link/" xmlns:db="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+        <import namespace="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises" schemaLocation="dbReferenceAllPaises.xsd"/>
+      </schema>
+   </grammars>
+   <resources>
+      <resource path="/getAll">
+         <method name="GET" soa:wsdlOperation="dbReferenceAllPaises">
+            <request soa:paramElement="pns:dbReferenceAllPaisesInput" xmlns:pns="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises"/>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:dbReferenceAllPaisesOutputCollection" xmlns:cns="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllPaises"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>
