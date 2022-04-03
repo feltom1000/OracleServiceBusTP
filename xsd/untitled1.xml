@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Respuesta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.paisespersonas.org PaisesPersonas.xsd" xmlns="http://www.paisespersonas.org">
+  <Paises>
+    <Pais>
+      <ID></ID>
+      <Descripcion></Descripcion>
+      <Personas/>
+    </Pais>
+  </Paises>
+</Respuesta>

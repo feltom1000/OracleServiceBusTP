@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:pipelineEntry xmlns:con="http://www.bea.com/wli/sb/pipeline/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:coreEntry>
+        <con:binding type="SOAP" isSoap12="false" xsi:type="con:SoapBindingType">
+            <con:wsdl ref="SBProjectTPFinal/wsdl/PaisesPersonas"/>
+            <con:binding>
+                <con:name>execute_bind</con:name>
+                <con:namespace>http://xmlns.oracle.com/ServiceBusApplication/SBProjectTPFinal/service1</con:namespace>
+            </con:binding>
+        </con:binding>
+        <con:xqConfiguration>
+            <con:snippetVersion>1.0</con:snippetVersion>
+        </con:xqConfiguration>
+    </con:coreEntry>
+    <con:router>
+        <con:pipeline type="request" name="request-N3f579bc3.48f6f40e.0.17fe75fdedc.N8000">
+            <con:stage id="_StageId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ffe" name="Stage1" errorHandler="error-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ff9">
+                <con:context>
+                    <con1:userNsDecl prefix="pais" namespace="http://www.paisespersonas.org" xmlns:con1="http://www.bea.com/wli/sb/stages/config"/>
+                </con:context>
+                <con:actions>
+                    <con1:validate xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ffa</con2:id>
+                        <con1:schema ref="SBProjectTPFinal/xsd/PaisesPersonas"/>
+                        <con1:schemaElement xmlns:pais="http://www.paisespersonas.org">pais:Entrada</con1:schemaElement>
+                        <con1:varName>body</con1:varName>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">./pais:Entrada</con2:xpathText>
+                        </con1:location>
+                    </con1:validate>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="response" name="response-N3f579bc3.48f6f40e.0.17fe75fdedc.N7fff">
+            <con:stage id="_StageId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ffd" name="Stage1">
+                <con:context/>
+                <con:actions/>
+            </con:stage>
+        </con:pipeline>
+        <con:pipeline type="error" name="error-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ff9">
+            <con:stage id="_StageId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ff8" name="Stage1">
+                <con:context/>
+                <con:actions>
+                    <con1:replace varName="body" contents-only="true" xmlns:con1="http://www.bea.com/wli/sb/stages/transform/config">
+                        <con2:id xmlns:con2="http://www.bea.com/wli/sb/stages/config">_ActionId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ff5</con2:id>
+                        <con1:location>
+                            <con2:xpathText xmlns:con2="http://www.bea.com/wli/sb/stages/config">.</con2:xpathText>
+                        </con1:location>
+                        <con1:expr>
+                            <con2:xqueryText xmlns:con2="http://www.bea.com/wli/sb/stages/config"><![CDATA[<Respuesta xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://www.paisespersonas.org PaisesPersonas.xsd" xmlns="http://www.paisespersonas.org">
+  <Paises>
+    <Pais>
+      <ID>0</ID>
+      <Descripcion>Datos de Entrada Incorrectos</Descripcion>
+      <Personas/>
+    </Pais>
+  </Paises>
+</Respuesta>]]></con2:xqueryText>
+                        </con1:expr>
+                    </con1:replace>
+                    <con1:reply isError="true" xmlns:con1="http://www.bea.com/wli/sb/stages/config">
+                        <con1:id>_ActionId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7ff2</con1:id>
+                    </con1:reply>
+                </con:actions>
+            </con:stage>
+        </con:pipeline>
+        <con:flow>
+            <con:pipeline-node name="Pipeline Pair Node1">
+                <con:request>request-N3f579bc3.48f6f40e.0.17fe75fdedc.N8000</con:request>
+                <con:response>response-N3f579bc3.48f6f40e.0.17fe75fdedc.N7fff</con:response>
+            </con:pipeline-node>
+            <con:route-node name="RouteNode1" xmlns:con1="http://www.bea.com/wli/sb/stages/routing/config" xmlns:con2="http://www.bea.com/wli/sb/stages/config">
+                <con:context>
+                    <con2:userNsDecl prefix="pais" namespace="http://www.paisespersonas.org"/>
+                </con:context>
+                <con:actions>
+                    <con1:route>
+                        <con2:id>_ActionId-N3f579bc3.77dcf24d.0.17fe6dede33.N8000</con2:id>
+                        <con1:service ref="SBProjectTPFinal/businessService/dbReferenceAllPaises" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                        <con1:operation>dbReferenceAllPaises</con1:operation>
+                        <con1:outboundTransform/>
+                        <con1:responseTransform>
+                            <con3:foreach xmlns:con3="http://www.bea.com/wli/sb/stages/transform/config">
+                                <con2:id>_ActionId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7fef</con2:id>
+                                <con3:variable>body</con3:variable>
+                                <con3:expression>
+                                    <con2:xpathText>./pais:Entrada/pais:ListaPaises/pais:Pais</con2:xpathText>
+                                </con3:expression>
+                                <con3:value-variable>itemLista</con3:value-variable>
+                                <con3:index-variable>indexLista</con3:index-variable>
+                                <con3:total-variable>countLista</con3:total-variable>
+                                <con3:actions>
+                                    <con3:foreach>
+                                        <con2:id>_ActionId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7fec</con2:id>
+                                        <con3:variable>body</con3:variable>
+                                        <con3:expression>
+                                            <con2:xpathText>./pais:Respuesta/pais:Paises/pais:Pais</con2:xpathText>
+                                        </con3:expression>
+                                        <con3:value-variable>itemPais</con3:value-variable>
+                                        <con3:index-variable>indexPais</con3:index-variable>
+                                        <con3:total-variable>countPais</con3:total-variable>
+                                        <con3:actions>
+                                            <con3:ifThenElse>
+                                                <con2:id>_ActionId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7fe2</con2:id>
+                                                <con3:case id="_BranchId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7fe1">
+                                                    <con3:condition>
+                                                        <con2:xqueryText>fn:data($body/pais:Entrada/pais:ListaPaises/pais:Pais[$indexLista]/pais:ID) = fn:data($body/pais:Respuesta/pais:Paises/pais:Pais[$indexPais]/pais:ID)</con2:xqueryText>
+                                                    </con3:condition>
+                                                    <con3:actions>
+                                                        <con3:wsCallout>
+                                                            <con2:id>_ActionId-N3f579bc3.48f6f40e.0.17fe75fdedc.N7fe9</con2:id>
+                                                            <con3:service ref="SBProjectTPFinal/businessService/dbReferencePersonasCRUD" xsi:type="ref:BusinessServiceRef" xmlns:ref="http://www.bea.com/wli/sb/reference"/>
+                                                            <con3:operation>dbReferencePersonasCRUDSelect</con3:operation>
+                                                            <con3:request>
+                                                                <con3:body wrapped="false">entrada</con3:body>
+                                                            </con3:request>
+                                                            <con3:response>
+                                                                <con3:body wrapped="false">salida</con3:body>
+                                                            </con3:response>
+                                                            <con3:requestTransform></con3:requestTransform>
+                                                            <con3:responseTransform>
+                                                                <con3:replace contents-only="true" varName="body">
+                                                                    <con2:id>_ActionId-N3f579bc3.30cea077.0.17fecb7e9c6.N7f01</con2:id>
+                                                                    <con2:disabled>true</con2:disabled>
+                                                                </con3:replace>
+                                                            </con3:responseTransform>
+                                                        </con3:wsCallout>
+                                                    </con3:actions>
+                                                </con3:case>
+                                                <con3:default/>
+                                            </con3:ifThenElse>
+                                        </con3:actions>
+                                    </con3:foreach>
+                                </con3:actions>
+                            </con3:foreach>
+                        </con1:responseTransform>
+                    </con1:route>
+                </con:actions>
+            </con:route-node>
+        </con:flow>
+    </con:router>
+</con:pipelineEntry>
