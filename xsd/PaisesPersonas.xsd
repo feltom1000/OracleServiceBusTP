@@ -41,10 +41,10 @@
           <xsd:sequence>
             <xsd:element name="Pais" maxOccurs="unbounded" minOccurs="1">
               <xsd:complexType>
-                <xsd:choice>
+                <xsd:sequence>
                   <xsd:element name="ID" type="xsd:integer"/>
                   <xsd:element name="Descripcion" type="xsd:string"/>
-                </xsd:choice>
+                </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
           </xsd:sequence>

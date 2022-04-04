@@ -1,59 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dgm:gDiagram xmlns:dgm="http://xmlns.oracle.com/sca/soadgm">
     <dgm:gService name="PaisesPersonasProxyService">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="414" width="137" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="21" Y="423" width="137" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="407" width="156" height="68">
+        <dgm:shadow arcRad="20" X="11" Y="416" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:outputPort name="PaisesPersonasProxyService" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="7" Y="4" width="20" height="20"/>
         <dgm:operations/>
     </dgm:gService>
-    <dgm:gService name="PaisesProxyService">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="41" width="137" height="54">
-            <dgm:borderColor r="153" g="153" b="153"/>
-            <dgm:bgColor r="255" g="255" b="255"/>
-        </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="34" width="156" height="68">
-            <dgm:bgColor r="196" g="228" b="240"/>
-        </dgm:shadow>
-        <dgm:outputPort name="PaisesProxyService" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="7" Y="4" width="20" height="20"/>
-        <dgm:operations/>
-    </dgm:gService>
-    <dgm:gService name="PersonasCRUDProxyService">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="502" width="137" height="54">
-            <dgm:borderColor r="153" g="153" b="153"/>
-            <dgm:bgColor r="255" g="255" b="255"/>
-        </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="495" width="156" height="68">
-            <dgm:bgColor r="196" g="228" b="240"/>
-        </dgm:shadow>
-        <dgm:outputPort name="PersonasCRUDProxyService" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="7" Y="4" width="20" height="20"/>
-        <dgm:operations/>
-    </dgm:gService>
-    <dgm:gService name="PipelineEjemploProxyService">
-        <dgm:body borderWidth="2" arcRad="20" X="21" Y="280" width="137" height="54">
-            <dgm:borderColor r="153" g="153" b="153"/>
-            <dgm:bgColor r="255" g="255" b="255"/>
-        </dgm:body>
-        <dgm:shadow arcRad="20" X="11" Y="273" width="156" height="68">
-            <dgm:bgColor r="196" g="228" b="240"/>
-        </dgm:shadow>
-        <dgm:outputPort name="PipelineEjemploProxyService" X="127" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_transport_http_20x20.png" X="7" Y="4" width="20" height="20"/>
-        <dgm:operations/>
-    </dgm:gService>
     <dgm:gReference name="dbRefDeletePais">
-        <dgm:body borderWidth="2" arcRad="20" X="701" Y="393" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="580" Y="284" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="691" Y="386" width="156" height="68">
+        <dgm:shadow arcRad="20" X="570" Y="277" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="dbRefDeletePais" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -61,11 +25,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="dbReferenceAllPaises">
-        <dgm:body borderWidth="2" arcRad="20" X="701" Y="41" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="580" Y="477" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="691" Y="34" width="156" height="68">
+        <dgm:shadow arcRad="20" X="570" Y="470" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="dbReferenceAllPaises" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -73,11 +37,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="dbReferenceInsertPais">
-        <dgm:body borderWidth="2" arcRad="20" X="701" Y="305" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="580" Y="198" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="691" Y="298" width="156" height="68">
+        <dgm:shadow arcRad="20" X="570" Y="191" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="dbReferenceInsertPais" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -85,11 +49,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="dbReferencePersonasCRUD">
-        <dgm:body borderWidth="2" arcRad="20" X="701" Y="481" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="580" Y="370" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="691" Y="474" width="156" height="68">
+        <dgm:shadow arcRad="20" X="570" Y="363" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="dbReferencePersonasCRUD" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -97,11 +61,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="DbRefSelectPKPaises">
-        <dgm:body borderWidth="2" arcRad="20" X="701" Y="217" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="580" Y="112" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="691" Y="210" width="156" height="68">
+        <dgm:shadow arcRad="20" X="570" Y="105" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="DbRefSelectPKPaises" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -109,11 +73,11 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gReference name="dbRefUpdatePaises">
-        <dgm:body borderWidth="2" arcRad="20" X="701" Y="129" width="136" height="54">
+        <dgm:body borderWidth="2" arcRad="20" X="580" Y="26" width="136" height="54">
             <dgm:borderColor r="153" g="153" b="153"/>
             <dgm:bgColor r="255" g="255" b="255"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="691" Y="122" width="156" height="68">
+        <dgm:shadow arcRad="20" X="570" Y="19" width="156" height="68">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="dbRefUpdatePaises" X="-10" Y="0" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -121,12 +85,12 @@
         <dgm:operations/>
     </dgm:gReference>
     <dgm:gComponent name="Paises">
-        <dgm:body borderWidth="2" arcRad="20" X="274" Y="26" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="367" Y="527" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="264" Y="19" width="150" height="77">
+        <dgm:shadow arcRad="20" X="357" Y="520" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -134,12 +98,12 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="PaisesPersonas">
-        <dgm:body borderWidth="2" arcRad="20" X="473" Y="385" width="130" height="86">
+        <dgm:body borderWidth="2" arcRad="20" X="367" Y="407" width="130" height="86">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="463" Y="378" width="150" height="102">
+        <dgm:shadow arcRad="20" X="357" Y="400" width="150" height="102">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
@@ -148,84 +112,43 @@
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
     <dgm:gComponent name="PersonasCRUD">
-        <dgm:body borderWidth="2" arcRad="20" X="274" Y="487" width="130" height="61">
+        <dgm:body borderWidth="2" arcRad="20" X="367" Y="312" width="130" height="61">
             <dgm:borderColor r="109" g="136" b="65"/>
             <dgm:lightBgColor r="201" g="224" b="155"/>
             <dgm:darkBgColor r="157" g="195" b="93"/>
         </dgm:body>
-        <dgm:shadow arcRad="20" X="264" Y="480" width="150" height="77">
+        <dgm:shadow arcRad="20" X="357" Y="305" width="150" height="77">
             <dgm:bgColor r="196" g="228" b="240"/>
         </dgm:shadow>
         <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:outputPort name="businessservice.-546550250.dbReferencePersonasCRUD" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
         <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
     </dgm:gComponent>
-    <dgm:gComponent name="PipelineEjemplo">
-        <dgm:body borderWidth="2" arcRad="20" X="473" Y="265" width="130" height="86">
-            <dgm:borderColor r="109" g="136" b="65"/>
-            <dgm:lightBgColor r="201" g="224" b="155"/>
-            <dgm:darkBgColor r="157" g="195" b="93"/>
-        </dgm:body>
-        <dgm:shadow arcRad="20" X="463" Y="258" width="150" height="102">
-            <dgm:bgColor r="196" g="228" b="240"/>
-        </dgm:shadow>
-        <dgm:inputPort name="__service__" X="-10" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:outputPort name="businessservice.-546550250.dbReferenceAllPaises" X="120" Y="15" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:outputPort name="businessservice.-546550250.dbReferencePersonasCRUD" X="120" Y="40" diameter="20" imageURI="oracle/tip/tools/ide/fabric/resource/image/visuals_rd1/servicereference.png" interface="SB Interface" callbackInterface="SB Interface"/>
-        <dgm:nodeIcon URI="/oracle/sb/tooling/ide/sca/internal/icons/icon_pipeline_20x20.gif" X="10" Y="4" width="20" height="20"/>
-    </dgm:gComponent>
-    <dgm:gWireLink source="PaisesProxyService" target="Paises/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="51" X2="264" Y2="51"/>
-        <dgm:baseColor r="153" g="153" b="153"/>
-        <dgm:selectedColor r="49" g="106" b="196"/>
-    </dgm:gWireLink>
-    <dgm:gWireLink source="PersonasCRUDProxyService" target="PersonasCRUD/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="512" X2="264" Y2="512"/>
-        <dgm:baseColor r="153" g="153" b="153"/>
-        <dgm:selectedColor r="49" g="106" b="196"/>
-    </dgm:gWireLink>
-    <dgm:gWireLink source="PipelineEjemploProxyService" target="PipelineEjemplo/__service__" width="2">
-        <dgm:gSegment X1="168" Y1="290" X2="463" Y2="290"/>
+    <dgm:gWireLink source="PersonasCRUD/businessservice.-546550250.dbReferencePersonasCRUD" target="dbReferencePersonasCRUD" width="2">
+        <dgm:gSegment X1="507" Y1="337" X2="546" Y2="337"/>
+        <dgm:gSegment X1="546" Y1="337" X2="546" Y2="380"/>
+        <dgm:gSegment X1="546" Y1="380" X2="570" Y2="380"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="Paises/businessservice.-546550250.dbReferenceAllPaises" target="dbReferenceAllPaises" width="2">
-        <dgm:gSegment X1="414" Y1="51" X2="691" Y2="51"/>
-        <dgm:baseColor r="153" g="153" b="153"/>
-        <dgm:selectedColor r="49" g="106" b="196"/>
-    </dgm:gWireLink>
-    <dgm:gWireLink source="PersonasCRUD/businessservice.-546550250.dbReferencePersonasCRUD" target="dbReferencePersonasCRUD" width="2">
-        <dgm:gSegment X1="414" Y1="512" X2="637" Y2="512"/>
-        <dgm:gSegment X1="637" Y1="512" X2="637" Y2="491"/>
-        <dgm:gSegment X1="637" Y1="491" X2="691" Y2="491"/>
-        <dgm:baseColor r="153" g="153" b="153"/>
-        <dgm:selectedColor r="49" g="106" b="196"/>
-    </dgm:gWireLink>
-    <dgm:gWireLink source="PipelineEjemplo/businessservice.-546550250.dbReferenceAllPaises" target="dbReferenceAllPaises" width="2">
-        <dgm:gSegment X1="613" Y1="290" X2="637" Y2="290"/>
-        <dgm:gSegment X1="637" Y1="290" X2="637" Y2="51"/>
-        <dgm:gSegment X1="637" Y1="51" X2="691" Y2="51"/>
-        <dgm:baseColor r="153" g="153" b="153"/>
-        <dgm:selectedColor r="49" g="106" b="196"/>
-    </dgm:gWireLink>
-    <dgm:gWireLink source="PipelineEjemplo/businessservice.-546550250.dbReferencePersonasCRUD" target="dbReferencePersonasCRUD" width="2">
-        <dgm:gSegment X1="613" Y1="315" X2="667" Y2="315"/>
-        <dgm:gSegment X1="667" Y1="315" X2="667" Y2="491"/>
-        <dgm:gSegment X1="667" Y1="491" X2="691" Y2="491"/>
+        <dgm:gSegment X1="507" Y1="552" X2="531" Y2="552"/>
+        <dgm:gSegment X1="531" Y1="552" X2="531" Y2="487"/>
+        <dgm:gSegment X1="531" Y1="487" X2="570" Y2="487"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="PaisesPersonas/businessservice.-546550250.dbReferenceAllPaises" target="dbReferenceAllPaises" width="2">
-        <dgm:gSegment X1="613" Y1="410" X2="652" Y2="410"/>
-        <dgm:gSegment X1="652" Y1="410" X2="652" Y2="51"/>
-        <dgm:gSegment X1="652" Y1="51" X2="691" Y2="51"/>
+        <dgm:gSegment X1="507" Y1="432" X2="546" Y2="432"/>
+        <dgm:gSegment X1="546" Y1="432" X2="546" Y2="487"/>
+        <dgm:gSegment X1="546" Y1="487" X2="570" Y2="487"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>
     <dgm:gWireLink source="PaisesPersonas/businessservice.-546550250.dbReferencePersonasCRUD" target="dbReferencePersonasCRUD" width="2">
-        <dgm:gSegment X1="613" Y1="435" X2="652" Y2="435"/>
-        <dgm:gSegment X1="652" Y1="435" X2="652" Y2="491"/>
-        <dgm:gSegment X1="652" Y1="491" X2="691" Y2="491"/>
+        <dgm:gSegment X1="507" Y1="457" X2="531" Y2="457"/>
+        <dgm:gSegment X1="531" Y1="457" X2="531" Y2="380"/>
+        <dgm:gSegment X1="531" Y1="380" X2="570" Y2="380"/>
         <dgm:baseColor r="153" g="153" b="153"/>
         <dgm:selectedColor r="49" g="106" b="196"/>
     </dgm:gWireLink>

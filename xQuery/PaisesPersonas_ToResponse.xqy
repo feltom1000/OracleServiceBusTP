@@ -9,7 +9,6 @@ declare namespace ns2="http://xmlns.oracle.com/pcbpel/adapter/db/dbReferenceAllP
 declare namespace ns3="http://xmlns.oracle.com/pcbpel/adapter/db/top/dbReferencePersonasCRUD";
 (:: import schema at "../Resources/dbReferencePersonasCRUD_table.xsd" ::)
 
-declare variable $entradaLista as element() (:: schema-element(ns1:Entrada) ::) external;
 declare variable $AllPaises as element() (:: schema-element(ns2:dbReferenceAllPaisesOutputCollection) ::) external;
 declare variable $AllPersonas as element() (:: schema-element(ns3:PersonasCollection) ::) external;
 
@@ -29,12 +28,16 @@ declare function local:func(
                         {
                             for $Personas in $AllPersonas/ns3:Personas
                             return 
-                            <ns1:Persona>
+                            if (fn:data($Personas/ns3:pais) eq fn:data($dbReferenceAllPaisesOutput/ns2:ID_PAIS)) then
+                (<ns1:Persona>
                                 <ns1:DNI>{fn:data($Personas/ns3:dni)}</ns1:DNI>
                                 <ns1:Nombre>{fn:data($Personas/ns3:nombre)}</ns1:Nombre>
                                 <ns1:Apellido>{fn:data($Personas/ns3:apellido)}</ns1:Apellido>
-                                <ns1:Pais>{fn:data($Personas/ns3:pais)}</ns1:Pais></ns1:Persona>
-                        }</ns1:Personas></ns1:Pais>
+                                <ns1:Pais>{fn:data($Personas/ns3:pais)}</ns1:Pais></ns1:Persona>)
+                else
+                ()
+                        }
+                        </ns1:Personas></ns1:Pais>
             }
         </ns1:Paises>
     </ns1:Respuesta>

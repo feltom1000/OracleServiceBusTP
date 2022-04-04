@@ -11,10 +11,10 @@
       <xsd:element name="Persona" minOccurs="0" maxOccurs="unbounded">
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="Pais" type="xsd:integer"/>
-            <xsd:element name="Apellido" type="xsd:string"/>
-            <xsd:element name="Nombre" type="xsd:string"/>
             <xsd:element name="DNI" type="xsd:integer"/>
+            <xsd:element name="Nombre" type="xsd:string"/>
+            <xsd:element name="Apellido" type="xsd:string"/>
+            <xsd:element name="Pais" type="xsd:integer"/>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
