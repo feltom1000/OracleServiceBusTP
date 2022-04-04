@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "fb998b34-7a3a-4c21-801a-b8f07883b1d0",
+		"name": "PaisesPersonas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=Argentina",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=Argentina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7101",
+					"path": [
+						"SBProjectTPFinal",
+						"RestServicePaisesPersonas",
+						"getPaisesPersonas"
+					],
+					"query": [
+						{
+							"key": "Descripcion",
+							"value": "Argentina"
+						}
+					]
+				},
+				"description": "Pais Argentina, con sus Personas"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=ArgentinaUruguayChile",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=ArgentinaUruguayChile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7101",
+					"path": [
+						"SBProjectTPFinal",
+						"RestServicePaisesPersonas",
+						"getPaisesPersonas"
+					],
+					"query": [
+						{
+							"key": "Descripcion",
+							"value": "ArgentinaUruguayChile"
+						}
+					]
+				},
+				"description": "Pais Argentina, uruguay y chile, con sus personas"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=ChileVenezuela",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=ChileVenezuela",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7101",
+					"path": [
+						"SBProjectTPFinal",
+						"RestServicePaisesPersonas",
+						"getPaisesPersonas"
+					],
+					"query": [
+						{
+							"key": "Descripcion",
+							"value": "ChileVenezuela"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=VenezuelaArgentina",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=VenezuelaArgentina",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7101",
+					"path": [
+						"SBProjectTPFinal",
+						"RestServicePaisesPersonas",
+						"getPaisesPersonas"
+					],
+					"query": [
+						{
+							"key": "Descripcion",
+							"value": "VenezuelaArgentina"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=VenezuelaArgentinaChileUruguay",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:7101/SBProjectTPFinal/RestServicePaisesPersonas/getPaisesPersonas?Descripcion=VenezuelaArgentinaChileUruguay",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "7101",
+					"path": [
+						"SBProjectTPFinal",
+						"RestServicePaisesPersonas",
+						"getPaisesPersonas"
+					],
+					"query": [
+						{
+							"key": "Descripcion",
+							"value": "VenezuelaArgentinaChileUruguay"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

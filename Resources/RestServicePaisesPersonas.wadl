@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<application xmlns:soa="http://www.oracle.com/soa/rest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:inp1="http://www.paisespersonas.org" xmlns="http://wadl.dev.java.net/2009/02">
+   <doc title="RestServicePaisesPersonas">RestService</doc>
+   <grammars>
+      <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://xmlns.oracle.com/ServiceBusApplication/SBProjectTPFinal/service1" xmlns:inp1="http://www.paisespersonas.org" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+            <xsd:import namespace="http://www.paisespersonas.org" schemaLocation="../xsd/PaisesPersonas.xsd"/>
+        </xsd:schema>
+   </grammars>
+   <resources>
+      <resource path="/getPaisesPersonas">
+         <method name="GET" soa:wsdlOperation="execute">
+            <request soa:paramElement="pns:Entrada" xmlns:pns="http://www.paisespersonas.org">
+               <param name="Descripcion" style="query" soa:expression="$msg.part1/inp1:ListaPaises/inp1:Pais/inp1:Descripcion" type="xsd:string"/>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json" element="cns:Respuesta" xmlns:cns="http://www.paisespersonas.org"/>
+            </response>
+         </method>
+      </resource>
+   </resources>
+</application>
